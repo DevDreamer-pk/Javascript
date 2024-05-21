@@ -55,14 +55,23 @@ const songs = [
   ];
   const filters = { genre: "Rock", duration: 350 };
 
-  function filterSongs(songs,filters){
-    //Implement your function here
-      const {genre,duration} = filters;
-      let filteredSongs = songs.filter((song, index)=>{
-         return song.genre == genre && song.duration > duration;        
-      })
-      return filteredSongs;
-  }
+  // function filterSongs(songs,filters){
+  //   //Implement your function here
+  //     const {genre,duration} = filters;
+  //     let filteredSongs = songs.filter((song, index)=>{
+  //        return song.genre == genre && song.duration > duration;        
+  //     })
+  //     return filteredSongs;
+  // }
+
+  function filterSongs(songs, filters) {
+    const { genre, duration } = filters;
+    let filteredSongs = songs.filter((song, index) => {
+        // Filter every second song
+        return index % 2 === 0 && song.genre === genre && song.duration > duration;
+    });
+    return filteredSongs;
+}
 
   const result = filterSongs(songs,filters);
  console.log(result);
